@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -39,13 +40,27 @@ public class MainActivity extends AppCompatActivity {
                RadioButton rb =  radioGroup.findViewById(i);
                if(null!=rb && i > -1){
                    Toast.makeText(MainActivity.this, rb.getText(),Toast.LENGTH_SHORT).show();
+                   switch (i) {
+                       case R.id.percent_small:
+                           tipEditText.setText("15");
+                           break;
+                       case R.id.percent_large:
+                           tipEditText.setText("20");
+                   }
                }
            }
        });
 
+
+
         TextChangeHandler tch = new TextChangeHandler();
         billEditText.addTextChangedListener(tch);
         tipEditText.addTextChangedListener(tch);
+    }
+
+    public void onClickButton(View v){
+        radioGroup.clearCheck();
+        tipEditText.setText("");
     }
 
     /* Called when the user clicks on the Calculate button */

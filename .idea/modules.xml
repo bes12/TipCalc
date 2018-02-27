@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/TipCalc.iml" filepath="$PROJECT_DIR$/TipCalc.iml" />
-      <module fileurl="file://F:\Program Files\Android\TipCalc\TipCalc.iml" filepath="F:\Program Files\Android\TipCalc\TipCalc.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://F:\Program Files\Android\TipCalc\app\app.iml" filepath="F:\Program Files\Android\TipCalc\app\app.iml" />
     </modules>
   </component>
 </project>
