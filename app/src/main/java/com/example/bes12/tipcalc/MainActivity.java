@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText billEditText;
     private EditText tipEditText;
     private RadioGroup radioGroup;
-    private RadioButton radioButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,30 +30,22 @@ public class MainActivity extends AppCompatActivity {
         billEditText = findViewById(R.id.amount_bill);
         tipEditText = findViewById(R.id.amount_tip_percent);
 
+       radioGroup = findViewById(R.id.radio_group);
+       radioGroup.clearCheck();
+
+       radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+           @Override
+           public void onCheckedChanged(RadioGroup radioGroup, int i) {
+               RadioButton rb =  radioGroup.findViewById(i);
+               if(null!=rb && i > -1){
+                   Toast.makeText(MainActivity.this, rb.getText(),Toast.LENGTH_SHORT).show();
+               }
+           }
+       });
+
         TextChangeHandler tch = new TextChangeHandler();
         billEditText.addTextChangedListener(tch);
         tipEditText.addTextChangedListener(tch);
-
-    }
-
-    public Integer onRadioButtonClicked(View v, RadioGroup group){
-        Integer tipS = 0;
-        boolean checked = ((RadioButton) v).isChecked();
-
-        switch(v.getId()) {
-            case R.id.percent_small:
-                if (checked)
-                    tipS = 15;
-            case R.id.percent_large:
-                if (checked)
-                    Toast.makeText(this, "random ", Toast.LENGTH_SHORT).show();
-                    tipS = 20;
-            case R.id.percent_custom:
-                if (checked)
-
-                    break;
-        }
-        return tipS;
     }
 
     /* Called when the user clicks on the Calculate button */
@@ -62,10 +53,8 @@ public class MainActivity extends AppCompatActivity {
         String billString = billEditText.getText().toString();
         String tipString = tipEditText.getText().toString();
 
-        TextView tipTextView =
-                (TextView) findViewById(R.id.amount_tip);
-        TextView totalTextView =
-                (TextView) findViewById(R.id.amount_total);
+        TextView tipTextView = findViewById(R.id.amount_tip);
+        TextView totalTextView = findViewById(R.id.amount_total);
 
         try {
             // convert billString and tipString to floats

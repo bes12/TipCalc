@@ -46,13 +46,12 @@
         android:inputType="number" />
 
     <RadioGroup
-        android:id="@+id/button_group"
+        android:id="@+id/radio_group"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/amount_tip_percent"
         android:padding="10dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="20dp"
+        android:gravity="center"
         android:orientation="horizontal">
         <RadioButton
             android:id="@+id/percent_small"
@@ -67,12 +66,6 @@
             android:layout_height="wrap_content"
             android:text="@string/percent_large"
         />
-        <RadioButton
-            android:id="@+id/percent_custom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/percent_custom"
-        />
     </RadioGroup>
 
 
@@ -82,7 +75,7 @@
     <!-- red line -->
     <View
         android:id="@+id/red_line"
-        android:layout_below="@+id/button_group"
+        android:layout_below="@+id/radio_group"
         android:layout_marginTop="20dp"
         android:layout_height="5dip"
         android:layout_width="match_parent"
